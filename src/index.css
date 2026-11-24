@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+
+  /* Brand ramp — deep indigo -> royal purple */
+  --color-brand-950: #14162f;
+  --color-brand-900: #20234e;
+  --color-brand-800: #2a2c66;
+  --color-brand-700: #381593;
+  --color-brand-600: #4c25b0;
+  --color-brand-500: #6238d1;
+  --color-brand-400: #8a67e6;
+  --color-brand-300: #b8a2f2;
+  --color-brand-200: #ddd3fa;
+  --color-brand-100: #eee9fc;
+  --color-brand-50: #f6f3fe;
+
+  /* Warm gold accent */
+  --color-gold-600: #b8860b;
+  --color-gold-500: #d4a017;
+  --color-gold-400: #eab63a;
+  --color-gold-300: #f4d477;
+  --color-gold-100: #fbf1d3;
+  --color-gold-50: #fdf9ec;
+
+  /* Semantic status */
+  --color-success-600: #0f8a4d;
+  --color-success-500: #16a35c;
+  --color-success-100: #dcf5e7;
+  --color-warning-600: #b45309;
+  --color-warning-500: #d97706;
+  --color-warning-100: #fdeecd;
+  --color-danger-600: #c02626;
+  --color-danger-500: #dc2b2b;
+  --color-danger-100: #fbe0e0;
+  --color-info-600: #1d63c9;
+  --color-info-500: #2b7be4;
+  --color-info-100: #dcebfc;
+
+  /* Neutrals */
+  --color-ink: #1f2330;
+  --color-ink-soft: #667085;
+  --color-surface: #ffffff;
+  --color-canvas: #f5f5fa;
+  --color-line: #e7e7ef;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-brand-500);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+}
+
+/* Hide scrollbars until scrolling */
+@layer utilities {
+  .scrollbar-slim {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+  }
+  .scrollbar-slim:hover {
+    scrollbar-color: var(--color-brand-200) transparent;
+  }
+  .scrollbar-slim::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  .scrollbar-slim::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 8px;
+  }
+  .scrollbar-slim:hover::-webkit-scrollbar-thumb {
+    background: var(--color-brand-200);
+  }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scan-line {
+  0% { transform: translateY(-100%); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateY(1200%); opacity: 0; }
+}
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+@keyframes grow-x {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.animate-fade-up { animation: fade-up 0.4s ease-out both; }
+.animate-fade-in { animation: fade-in 0.5s ease-out both; }
+.animate-scan { animation: scan-line 2s ease-in-out infinite; }
+.animate-pulse-soft { animation: pulse-soft 1.6s ease-in-out infinite; }
